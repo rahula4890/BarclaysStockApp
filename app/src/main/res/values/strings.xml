@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">StockApp</string>
+    <string name="stock_name">Barclays</string>
+    <string name="stock_price">1000.00</string>
+    <string name="stock_board">BSE</string>
+    <string name="stock_change">+11(+10.00%)</string>
+    <string name="menu_favorite">Add To Favorites</string>
+    <string name="menu_unfavorite">Remove from Favorites</string>
+    <string name="menu_stock_favorited">%1$s has been added to your favorites!</string>
+    <string name="menu_stock_unfavorited">%1$s has been removed from your favorites!</string>
+    <string name="favorites_empty_text">You have not added any favorites yet! Try favoriting a stock from the detail page.</string>
+    <string name="main_nav_stocks_title">Stocks</string>
+    <string name="main_nav_favourites_title">Watchlist</string>
+    <string name="main_menu_lightbulb_theme">Theme</string>
+</resources>

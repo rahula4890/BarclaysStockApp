@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/stocksListFragment">
+
+    <fragment
+        android:id="@+id/stocksListFragment"
+        android:name="com.barclays.stockapp.view.ui.main.StocksListFragment"
+        android:label="StockListFragment"
+        tools:layout="@layout/fragment_stocks_list">
+        <action
+            android:id="@+id/action_stocksListNavGraphFragment_to_profileActivity2"
+            app:destination="@id/profileActivity2" />
+    </fragment>
+
+    <activity
+        android:id="@+id/profileActivity2"
+        android:name="com.barclays.stockapp.view.ui.stock_detail.StockDetailActivity"
+        android:label="ProfileActivity"
+        tools:layout="@layout/activity_stock_detail" />
+</navigation>
