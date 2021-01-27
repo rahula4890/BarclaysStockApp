@@ -18,7 +18,7 @@ class StockListViewModelTest {
 
     private lateinit var classUnderTest: StockListViewModel
 
-    lateinit var stockListRepository: StockListRepository
+    private lateinit var stockListRepository: StockListRepository
 
     @Mock
     lateinit var iStockAppService: IStockAppService
@@ -33,8 +33,9 @@ class StockListViewModelTest {
     lateinit var viewModel: StockListViewModel
 
     @Before
-    fun setUp(){
-        stockListRepository = StockListRepository(iStockAppService,stockDao,sharedPreferenceHelper)
+    fun setUp() {
+        stockListRepository =
+            StockListRepository(iStockAppService, stockDao, sharedPreferenceHelper)
         viewModel = StockListViewModel(stockListRepository)
         classUnderTest = StockListViewModel(
             stockListRepository
@@ -42,20 +43,36 @@ class StockListViewModelTest {
     }
 
     @Test
-    fun fetchStockList_ShouldReturnUser() {
+    fun `given user enter query string in search box the fetchStockList Should Return filtered stock list to the user`() {
         listOfStocks()
-        assertEquals(listOfExpectedStocks(),viewModel.filterStockList("i"))
+        assertEquals(listOfExpectedStocks(), viewModel.filterStockList("i"))
+    }
+
+    @Test
+    fun `given user has kept empty string in search box the fetchStockList Should Return filtered stock list to the user`() {
+        listOfStocks()
+        assertEquals(listOfAllStocks(), viewModel.filterStockList(""))
     }
 
     private fun listOfExpectedStocks(): Unit {
         mutableListOf(
-            Stock("ibm","IBM", 100.0F, "NSE"),Stock("infy","Infosys", 100.0F, "BSE")
+            Stock("ibm", "IBM", 100.0F, "NSE"), Stock("infy", "Infosys", 100.0F, "BSE")
         )
     }
 
-      private fun listOfStocks():MutableList<Stock>{
+    private fun listOfAllStocks(): Unit {
+        mutableListOf(
+            Stock("ibm", "IBM", 100.0F, "NSE"),
+            Stock("infy", "Infosys", 100.0F, "BSE"),
+            Stock("barclays", "Barclays", 100.0F, "BSE")
+        )
+    }
+
+    private fun listOfStocks(): MutableList<Stock> {
         return mutableListOf(
-            Stock("ibm","IBM", 100.0F, "NSE"),Stock("infy","Infosys", 100.0F, "BSE"),Stock("barclays","Barclays", 100.0F, "BSE")
+            Stock("ibm", "IBM", 100.0F, "NSE"),
+            Stock("infy", "Infosys", 100.0F, "BSE"),
+            Stock("barclays", "Barclays", 100.0F, "BSE")
         )
     }
 }
