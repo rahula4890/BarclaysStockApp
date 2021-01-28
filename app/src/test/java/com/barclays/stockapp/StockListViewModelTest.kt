@@ -59,6 +59,16 @@ class StockListViewModelTest {
             Stock("ibm", "IBM", 100.0F, "NSE"), Stock("infy", "Infosys", 100.0F, "BSE")
         )
     }
+    
+    /*
+    //Note: Currently i am learning and working on writing this test case, this is failing so kept commented.
+    @Test
+    suspend fun `given user force refresh getStocks`() {
+        //when
+        `when`(stockListRepository.getStocksList(true)).thenReturn(listOfStocks())
+        viewModel.getStocks(true)
+        assertEquals(listOfAllStocks(), viewModel.getStocks(true))
+    }*/
 
     private fun listOfAllStocks(): Unit {
         mutableListOf(
